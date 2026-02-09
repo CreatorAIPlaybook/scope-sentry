@@ -78,15 +78,15 @@ export async function registerRoutes(
 
       const responseSchema = z.object({
         score: z.number().min(0).max(100),
-        label: z.string(),
+        label: z.enum(["Low Risk", "Moderate Risk", "High Risk", "Critical Risk"]),
         flags: z.array(
           z.object({
-            title: z.string(),
+            title: z.string().min(1),
             severity: z.enum(["low", "medium", "high"]),
-            description: z.string(),
-            fix: z.string(),
+            description: z.string().min(1),
+            fix: z.string().min(1),
           })
-        ),
+        ).max(8),
       });
 
       const validated = responseSchema.safeParse(analysis);
