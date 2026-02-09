@@ -2,50 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
-  --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
-  --background: 0 0% 98%;
-  --foreground: 0 0% 9%;
-  --border: 0 0% 91%;
-  --card: 0 0% 96%;
-  --card-foreground: 0 0% 9%;
-  --card-border: 0 0% 93%;
-  --sidebar: 0 0% 94%;
-  --sidebar-foreground: 0 0% 9%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-primary: 45 95% 50%;
-  --sidebar-primary-foreground: 45 95% 98%;
-  --sidebar-accent: 0 0% 88%;
-  --sidebar-accent-foreground: 0 0% 9%;
-  --sidebar-ring: 45 95% 50%;
-  --popover: 0 0% 92%;
-  --popover-foreground: 0 0% 9%;
-  --popover-border: 0 0% 88%;
-  --primary: 45 95% 50%;
-  --primary-foreground: 45 95% 98%;
-  --secondary: 0 0% 86%;
-  --secondary-foreground: 0 0% 9%;
-  --muted: 0 0% 90%;
-  --muted-foreground: 0 0% 35%;
-  --accent: 0 2% 89%;
-  --accent-foreground: 0 2% 9%;
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+  --background: 228 16% 7%;
+  --foreground: 0 0% 95%;
+  --border: 222 14% 12%;
+  --card: 222 16% 10%;
+  --card-foreground: 0 0% 95%;
+  --card-border: 222 14% 12%;
+  --sidebar: 222 16% 10%;
+  --sidebar-foreground: 0 0% 95%;
+  --sidebar-border: 222 14% 12%;
+  --sidebar-primary: 46 90% 55%;
+  --sidebar-primary-foreground: 228 16% 7%;
+  --sidebar-accent: 222 14% 16%;
+  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-ring: 46 90% 55%;
+  --popover: 222 16% 11%;
+  --popover-foreground: 0 0% 95%;
+  --popover-border: 222 14% 16%;
+  --primary: 46 90% 55%;
+  --primary-foreground: 228 16% 7%;
+  --secondary: 222 14% 16%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 222 14% 14%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 222 12% 16%;
+  --accent-foreground: 0 0% 95%;
   --destructive: 0 84% 48%;
   --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 75%;
-  --ring: 45 95% 50%;
-  --chart-1: 153 45% 35%;
-  --chart-2: 45 95% 40%;
-  --chart-3: 0 84% 45%;
-  --chart-4: 210 50% 40%;
-  --chart-5: 280 50% 40%;
-  --font-sans: Open Sans, sans-serif;
+  --input: 222 14% 18%;
+  --ring: 46 90% 55%;
+  --chart-1: 153 55% 40%;
+  --chart-2: 46 90% 55%;
+  --chart-3: 0 84% 55%;
+  --chart-4: 210 70% 55%;
+  --chart-5: 280 65% 55%;
+  --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-mono: 'JetBrains Mono', monospace;
   --radius: .5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
@@ -58,31 +57,24 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
-/* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --sidebar-accent-border: hsl(var(--sidebar-accent));
   --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --primary-border: hsl(var(--primary));
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --secondary-border: hsl(var(--secondary));
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --muted-border: hsl(var(--muted));
   --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --accent-border: hsl(var(--accent));
   --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --destructive-border: hsl(var(--destructive));
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
@@ -93,40 +85,40 @@
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
-  --background: 220 15% 6%;
-  --foreground: 0 0% 98%;
-  --border: 220 15% 13%;
-  --card: 220 15% 8%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 220 15% 11%;
-  --sidebar: 220 15% 10%;
-  --sidebar-foreground: 0 0% 98%;
-  --sidebar-border: 220 15% 14%;
-  --sidebar-primary: 45 95% 55%;
-  --sidebar-primary-foreground: 220 15% 6%;
-  --sidebar-accent: 220 15% 15%;
-  --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-ring: 45 95% 55%;
-  --popover: 220 15% 12%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 220 15% 16%;
-  --primary: 45 95% 55%;
-  --primary-foreground: 220 15% 6%;
-  --secondary: 220 15% 18%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 220 15% 16%;
-  --muted-foreground: 0 0% 65%;
-  --accent: 220 12% 17%;
-  --accent-foreground: 0 0% 98%;
+  --background: 228 16% 7%;
+  --foreground: 0 0% 95%;
+  --border: 222 14% 12%;
+  --card: 222 16% 10%;
+  --card-foreground: 0 0% 95%;
+  --card-border: 222 14% 12%;
+  --sidebar: 222 16% 10%;
+  --sidebar-foreground: 0 0% 95%;
+  --sidebar-border: 222 14% 12%;
+  --sidebar-primary: 46 90% 55%;
+  --sidebar-primary-foreground: 228 16% 7%;
+  --sidebar-accent: 222 14% 16%;
+  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-ring: 46 90% 55%;
+  --popover: 222 16% 11%;
+  --popover-foreground: 0 0% 95%;
+  --popover-border: 222 14% 16%;
+  --primary: 46 90% 55%;
+  --primary-foreground: 228 16% 7%;
+  --secondary: 222 14% 16%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 222 14% 14%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 222 12% 16%;
+  --accent-foreground: 0 0% 95%;
   --destructive: 0 84% 48%;
   --destructive-foreground: 0 0% 98%;
-  --input: 220 15% 25%;
-  --ring: 45 95% 55%;
-  --chart-1: 153 55% 65%;
-  --chart-2: 45 95% 70%;
-  --chart-3: 0 84% 65%;
-  --chart-4: 210 70% 70%;
-  --chart-5: 280 65% 70%;
+  --input: 222 14% 18%;
+  --ring: 46 90% 55%;
+  --chart-1: 153 55% 40%;
+  --chart-2: 46 90% 55%;
+  --chart-3: 0 84% 55%;
+  --chart-4: 210 70% 55%;
+  --chart-5: 280 65% 55%;
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
   --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
@@ -136,31 +128,24 @@
   --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 8px 10px -1px hsl(0 0% 0% / 0.00);
   --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
 
-/* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --sidebar-accent-border: hsl(var(--sidebar-accent));
   --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --primary-border: hsl(var(--primary));
   --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --secondary-border: hsl(var(--secondary));
   --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --muted-border: hsl(var(--muted));
   --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --accent-border: hsl(var(--accent));
   --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
-  /* Fallback for older browsers */
   --destructive-border: hsl(var(--destructive));
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
