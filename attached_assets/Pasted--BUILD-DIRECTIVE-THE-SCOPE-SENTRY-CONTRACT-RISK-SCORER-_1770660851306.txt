@@ -1,0 +1,40 @@
+# BUILD DIRECTIVE: THE SCOPE SENTRY (CONTRACT RISK SCORER)
+
+**Role:** Senior Frontend Engineer.
+**Goal:** Build a "Contract Risk Scanner" that analyzes freelance Scope of Work (SOW) text for vague language and risk.
+**Vibe:** "Boardroom Quality." Dark mode only. Serious, precise, and high-contrast.
+
+## 1. THE VISUAL PHYSICS (STRICT UDALLER STANDARD)
+- **Background:** `#0F1115` (Obsidian Void).
+- **Cards/Surfaces:** `#161B22` (Deep Charcoal) with 1px `rgba(255,255,255,0.08)` border.
+- **Accents:**
+    - **Safe:** `#2E8B57` (Sea Green).
+    - **Risk:** `#EF4444` (Muted Red).
+    - **Action:** `#F4C430` (Saffron Gold).
+- **Typography:** 'Inter' (UI), 'JetBrains Mono' (Data).
+
+## 2. THE INTERFACE (SPLIT SCREEN LAYOUT)
+**Left Panel (The Input):**
+- **Headline:** "Paste Your Scope of Work."
+- **Sub-headline:** "Identify 'Scope Creep' triggers before you sign."
+- **Component:** Large Text Area (dark mode, monospace font, placeholder: "Paste contract clauses here...").
+- **Button:** "Analyze Risk" (Gold, Full Width).
+
+**Right Panel (The Verdict - Hidden until Analysis complete):**
+- **The Score:** A giant Gauge/Number (0-100).
+    - 0-50: "Critical Risk" (Red).
+    - 51-80: "Moderate Risk" (Amber).
+    - 81-100: "Sovereign" (Green).
+- **The Red Flags (List):**
+    - Display a list of "Detected Risks" (e.g., "Vague Revision Count", "Missing Payment Dates").
+    - Use a "Shield Alert" icon for each.
+- **The Fix:** A text block suggesting how to rewrite the bad clause.
+
+## 3. THE LOGIC (MOCK FOR NOW)
+- Create a dummy function `analyzeContract(text)` that waits 2 seconds (simulating AI) and returns a hardcoded "Risk Score: 45" and 3 "Red Flags" for demo purposes.
+- I will wire the real Gemini API later.
+
+## 4. THE UPSELL (THE WEDGE)
+- **Bottom Card:** "Don't sign bad deals."
+- **Button 1:** "Get the Bonsai Contract Template" (Blue Outline).
+- **Button 2:** "Track this Project in Command Center" (Gold Solid - Link to `https://udaller.one`).
