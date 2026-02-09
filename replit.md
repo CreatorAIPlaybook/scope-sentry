@@ -6,7 +6,7 @@ Scope Sentry is a "Contract Risk Scanner" web application that analyzes freelanc
 
 The app follows a "Boardroom Quality" dark-mode-only design aesthetic with an obsidian/charcoal color palette, gold accents for actions, green for safe indicators, and red for risk indicators. Typography uses Inter for UI and JetBrains Mono for data display.
 
-Currently, the contract analysis endpoint returns hardcoded mock data (score: 45, 3 red flags). The architecture is designed to later integrate a real AI backend (e.g., Gemini API) for actual contract analysis.
+The contract analysis endpoint uses Google Gemini 2.0 Flash to perform real AI-powered analysis of contract text, returning risk scores and detailed red flags with suggested fixes.
 
 ## User Preferences
 
@@ -34,7 +34,8 @@ The project uses a monorepo layout with three main directories:
 - **Framework:** Express 5 on Node.js
 - **Language:** TypeScript, executed via `tsx` in development
 - **API Pattern:** RESTful JSON API under `/api/` prefix
-- **Key Endpoint:** `POST /api/analyze` — accepts contract text, returns risk score and flags (currently mocked with 2-second delay)
+- **Key Endpoint:** `POST /api/analyze` — accepts contract text, sends it to Gemini 2.0 Flash for analysis, returns risk score and flags
+- **AI Integration:** Google Generative AI SDK (`@google/generative-ai`) with structured JSON output
 - **Request Validation:** Zod schemas for input validation
 - **Build:** esbuild bundles server to `dist/index.cjs` for production; Vite builds client to `dist/public/`
 
@@ -56,13 +57,14 @@ The project uses a monorepo layout with three main directories:
 ### Data Flow
 1. User pastes contract text in the left panel textarea
 2. Click "Analyze Risk" triggers a `POST /api/analyze` with the text
-3. Server validates input with Zod, simulates processing (2s delay), returns mock risk data
+3. Server validates input with Zod, sends text to Gemini 2.0 Flash with a Legal Risk Analyst prompt, validates the AI response with Zod
 4. Frontend displays risk gauge (0-100 score), red flags list with severity badges, and fix suggestions in the right panel with animated transitions
 
 ## External Dependencies
 
 ### Required Environment Variables
 - `DATABASE_URL` — PostgreSQL connection string (required by drizzle config)
+- `GEMINI_API_KEY` — Google Gemini API key for contract analysis
 
 ### Key Third-Party Libraries
 - **@tanstack/react-query** — Server state management and caching
@@ -83,7 +85,9 @@ The project uses a monorepo layout with three main directories:
 ### Fonts (External)
 - Google Fonts: Inter, JetBrains Mono, DM Sans, Fira Code, Geist Mono, Architects Daughter (loaded via CDN in `index.html`)
 
-### Future Integrations (Referenced but not yet implemented)
-- Gemini API / Google Generative AI — For real contract analysis (referenced in build allowlist)
-- Bonsai Contract Templates — External link for upsell
-- Udaller Command Center (`https://udaller.one`) — External product link for upsell
+### Active Integrations
+- **Google Generative AI (Gemini 2.0 Flash)** — Powers real-time contract risk analysis via `@google/generative-ai` SDK
+
+### External Links
+- HoneyBook (`https://www.honeybook.com/`) — Contract template affiliate link
+- Udaller Command Center (`https://udaller.one`) — Project tracking upsell link
