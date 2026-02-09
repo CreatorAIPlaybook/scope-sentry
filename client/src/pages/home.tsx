@@ -442,20 +442,11 @@ export default function Home() {
                       Don&rsquo;t sign bad deals.
                     </p>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      Protect your work with proper contracts and project
-                      tracking.
+                      Track scope and get paid on time.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 flex-wrap w-full sm:w-auto">
-                  <Button
-                    variant="outline"
-                    className="flex-1 sm:flex-none text-sm border-[#3B82F6]/30 text-[#60A5FA]"
-                    data-testid="button-bonsai-template"
-                  >
-                    Get the Bonsai Contract Template
-                    <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                  </Button>
                   <Button
                     asChild
                     className="flex-1 sm:flex-none text-sm bg-[#F4C430] text-[#0F1115] border-[#F4C430]"
@@ -466,7 +457,22 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Track in Command Center
+                      Track this Project in Command Center
+                      <ExternalLink className="w-3.5 h-3.5 ml-1" />
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="flex-1 sm:flex-none text-sm border-[#3B82F6]/30 text-[#60A5FA]"
+                    data-testid="button-contract-template"
+                  >
+                    <a
+                      href="https://www.honeybook.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get a Solid Contract Template
                       <ExternalLink className="w-3.5 h-3.5 ml-1" />
                     </a>
                   </Button>
