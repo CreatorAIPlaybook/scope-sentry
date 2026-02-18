@@ -1,6 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { serveStatic } from "./static";
+import { registerRoutes } from "./routes.js";
+import { serveStatic } from "./static.js";
 import { createServer } from "http";
 
 const app = express();
@@ -79,7 +79,7 @@ registerRoutes(httpServer, app)
     if (process.env.NODE_ENV === "production") {
       serveStatic(app);
     } else {
-      return import("./vite").then(({ setupVite }) => setupVite(httpServer, app));
+      return import("./vite.js").then(({ setupVite }) => setupVite(httpServer, app));
     }
   })
   .then(() => {
