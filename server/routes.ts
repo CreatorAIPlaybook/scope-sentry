@@ -99,11 +99,12 @@ export async function registerRoutes(
     } catch (error: any) {
       console.error("Gemini API error:", error?.message || error);
       const status = error?.response?.status ?? error?.status ?? error?.statusCode;
-      const isRateLimit = status === 429 || /429|rate limit|quota|RESOURCE_EXHAUSTED/i.test(String(error?.message ?? ""));
-      const message = isRateLimit
-        ? "Rate limit exceeded. Please try again later or check your API quota."
+      const msg = String(error?.message ?? "");
+      const isQuotaOr429 = status === 429 || /429|quota/i.test(msg);
+      const message = isQuotaOr429
+        ? "The AI is currently at capacity. Please try again in 60 seconds."
         : "Failed to analyze contract. Please try again.";
-      return res.status(isRateLimit ? 429 : 500).json({ error: message });
+      return res.status(isQuotaOr429 ? 429 : 500).json({ error: message });
     }
   });
 
