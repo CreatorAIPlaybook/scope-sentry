@@ -98,9 +98,12 @@ export async function registerRoutes(
       return res.json(validated.data);
     } catch (error: any) {
       console.error("Gemini API error:", error?.message || error);
-      return res.status(500).json({
-        error: "Failed to analyze contract. Please try again.",
-      });
+      const status = error?.response?.status ?? error?.status ?? error?.statusCode;
+      const isRateLimit = status === 429 || /429|rate limit|quota|RESOURCE_EXHAUSTED/i.test(String(error?.message ?? ""));
+      const message = isRateLimit
+        ? "Rate limit exceeded. Please try again later or check your API quota."
+        : "Failed to analyze contract. Please try again.";
+      return res.status(isRateLimit ? 429 : 500).json({ error: message });
     }
   });
 
