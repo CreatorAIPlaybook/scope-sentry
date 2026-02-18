@@ -53,9 +53,9 @@ function RiskGauge({ score, label }: { score: number; label: string }) {
   }, [score]);
 
   const getColor = (s: number) => {
-    if (s <= 50) return "#EF4444";
-    if (s <= 80) return "#F4C430";
-    return "#2E8B57";
+    if (s >= 80) return "#EF4444"; // Red for Critical Risk
+    if (s >= 50) return "#F4C430"; // Gold for Moderate Risk
+    return "#10B981"; // Emerald Green for Low Risk
   };
 
   const color = getColor(score);
