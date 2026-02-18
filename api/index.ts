@@ -1,5 +1,5 @@
-import app from '../server/index.js'; // Adjust path if needed
+import app from "../server/index";
 
-export default function handler(req, res) {
+export default function handler(req: any, res: any) {
   return app(req, res);
 }
