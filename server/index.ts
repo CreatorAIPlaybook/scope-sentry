@@ -59,47 +59,47 @@ app.use((req, res, next) => {
   next();
 });
 
-await (async () => {
-  await registerRoutes(httpServer, app);
+// Async setup: no top-level await so CJS build works. Routes/static/vite and listen run via .then()
+registerRoutes(httpServer, app)
+  .then(() => {
+    app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+      const status = err.status || err.statusCode || 500;
+      const message = err.message || "Internal Server Error";
 
-  app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
+      console.error("Internal Server Error:", err);
 
-    console.error("Internal Server Error:", err);
+      if (res.headersSent) {
+        return next(err);
+      }
 
-    if (res.headersSent) {
-      return next(err);
+      return res.status(status).json({ message });
+    });
+
+    // Only setup vite in development, after other routes so catch-all doesn't interfere
+    if (process.env.NODE_ENV === "production") {
+      serveStatic(app);
+    } else {
+      return import("./vite").then(({ setupVite }) => setupVite(httpServer, app));
     }
-
-    return res.status(status).json({ message });
+  })
+  .then(() => {
+    // Only listen when not on Vercel (local/dev). On Vercel the app is used as the handler; listen() would crash.
+    if (!process.env.VERCEL) {
+      const port = parseInt(process.env.PORT || "5000", 10);
+      httpServer.listen(
+        {
+          port,
+          host: "0.0.0.0",
+          reusePort: true,
+        },
+        () => {
+          log(`serving on port ${port}`);
+        },
+      );
+    }
+  })
+  .catch((err) => {
+    console.error("Server startup error:", err);
   });
-
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (process.env.NODE_ENV === "production") {
-    serveStatic(app);
-  } else {
-    const { setupVite } = await import("./vite");
-    await setupVite(httpServer, app);
-  }
-
-  // Only listen when run directly (local dev). In production (e.g. Vercel serverless),
-  // the app is used as the handler and must not call listen().
-  if (process.env.NODE_ENV !== "production") {
-    const port = parseInt(process.env.PORT || "5000", 10);
-    httpServer.listen(
-      {
-        port,
-        host: "0.0.0.0",
-        reusePort: true,
-      },
-      () => {
-        log(`serving on port ${port}`);
-      },
-    );
-  }
-})();
 
 export default app;
