@@ -85,17 +85,10 @@ registerRoutes(httpServer, app)
   .then(() => {
     // Only listen when not on Vercel (local/dev). On Vercel the app is used as the handler; listen() would crash.
     if (!process.env.VERCEL) {
-      const port = parseInt(process.env.PORT || "5000", 10);
-      httpServer.listen(
-        {
-          port,
-          host: "0.0.0.0",
-          reusePort: true,
-        },
-        () => {
-          log(`serving on port ${port}`);
-        },
-      );
+      const port: number = Number(process.env.PORT) || 3000;
+      httpServer.listen(port, "0.0.0.0", () => {
+        log(`serving on port ${port}`);
+      });
     }
   })
   .catch((err) => {

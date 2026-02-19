@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from "react";
+import SovereignHeader from "@/components/SovereignHeader";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,8 +12,8 @@ import {
   FileWarning,
   Lightbulb,
   ExternalLink,
-  Shield,
   ChevronRight,
+  Lock,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
@@ -259,45 +260,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-[rgba(255,255,255,0.06)] px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-md bg-[#F4C430]/10 flex items-center justify-center border border-[#F4C430]/20">
-              <Shield className="w-5 h-5 text-[#F4C430]" />
-            </div>
-            <div>
-              <h1
-                className="text-base font-bold tracking-tight text-foreground"
-                data-testid="text-app-title"
-              >
-                Scope Sentry
-              </h1>
-              <p className="text-[11px] text-muted-foreground font-mono uppercase tracking-widest">
-                Contract Risk Scanner
-              </p>
-            </div>
-          </div>
-          <Badge variant="outline" className="text-xs font-mono">
-            v1.0
-          </Badge>
-        </div>
-      </header>
+      <SovereignHeader appName="Scope Sentry" />
 
       <main className="max-w-7xl mx-auto px-6 py-8">
+        <div className="text-sm text-gray-500 flex items-center justify-center gap-2 mb-4">
+          <Lock className="w-4 h-4 shrink-0" />
+          <span>100% Private - Processed Securely &amp; Never Stored</span>
+        </div>
+        <h1
+          className="text-3xl font-bold text-white mb-3 text-center"
+          data-testid="text-input-headline"
+        >
+          Analyze Your Scope of Work
+        </h1>
+        <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+          Identify &lsquo;Scope Creep&rsquo; triggers before you sign the contract.
+        </p>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col gap-6">
-            <div>
-              <h2
-                className="text-2xl font-bold tracking-tight text-foreground"
-                data-testid="text-input-headline"
-              >
-                Paste Your Scope of Work.
-              </h2>
-              <p className="text-sm text-muted-foreground mt-2">
-                Identify &lsquo;Scope Creep&rsquo; triggers before you sign.
-              </p>
-            </div>
-
             <Card className="border-[rgba(255,255,255,0.06)] flex-1">
               <CardContent className="p-4 flex flex-col gap-4 h-full">
                 <Textarea
@@ -426,6 +407,16 @@ export default function Home() {
           </div>
         </div>
 
+        <p
+          className="text-sm text-gray-500 normal-case text-center mt-12 px-8 leading-relaxed font-sans"
+          data-testid="text-disclaimer"
+        >
+          Scope Sentry provides automated risk analysis based on standard
+          contract patterns for informational purposes only. It is not a
+          substitute for professional legal counsel. Always review agreements
+          carefully or consult an attorney before signing.
+        </p>
+
         <div className="mt-12">
           <Card className="border-[rgba(255,255,255,0.06)]">
             <CardContent className="p-6">
@@ -449,20 +440,6 @@ export default function Home() {
                 <div className="flex items-center gap-3 flex-wrap w-full sm:w-auto">
                   <Button
                     asChild
-                    className="flex-1 sm:flex-none text-sm bg-[#F4C430] text-[#0F1115] border-[#F4C430]"
-                    data-testid="button-command-center"
-                  >
-                    <a
-                      href="https://udaller.one"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Track this Project in Command Center
-                      <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
                     variant="outline"
                     className="flex-1 sm:flex-none text-sm border-[#3B82F6]/30 text-[#60A5FA]"
                     data-testid="button-contract-template"
@@ -481,6 +458,31 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
+
+        <p
+          className="text-sm text-gray-500 text-center mt-12 pb-8 leading-relaxed font-sans"
+          data-testid="text-powered-by"
+        >
+          This tool is part of the{" "}
+          <a
+            href="https://udaller.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-gray-400 hover:text-[#F4C430] transition-colors"
+          >
+            Udaller
+          </a>{" "}
+          ecosystem. Build your machine at{" "}
+          <a
+            href="https://creatoraiplaybook.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-gray-400 hover:text-[#F4C430] transition-colors"
+          >
+            Creator AI Playbook
+          </a>
+          .
+        </p>
       </main>
     </div>
   );
