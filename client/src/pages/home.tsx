@@ -474,12 +474,12 @@ export default function Home() {
           </a>{" "}
           ecosystem. Build your machine at{" "}
           <a
-            href="https://creatoraiplaybook.co"
+            href="https://udallerprotocol.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-gray-400 hover:text-[#F4C430] transition-colors"
           >
-            Creator AI Playbook
+            The Udaller Protocol
           </a>
           .
         </p>
