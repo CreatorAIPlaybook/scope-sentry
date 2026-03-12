@@ -24,7 +24,7 @@ export default function SovereignHeader({ appName }: SovereignHeaderProps) {
         {/* Left: Brand Identity */}
         <div className="flex items-center gap-3 min-w-0">
           <a
-            href="https://udaller.com"
+            href="https://udaller.one"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 focus:outline-none focus:ring-2 focus:ring-[#F4C430]/50 rounded"
