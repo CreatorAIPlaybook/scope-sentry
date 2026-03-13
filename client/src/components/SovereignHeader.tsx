@@ -8,6 +8,7 @@ const navLinks = [
   { label: "UDALLER ONE", href: "https://udaller.one" },
   { label: "SCOPE SENTRY", href: "https://scope.udaller.one" },
   { label: "TRUE RATE", href: "https://rate.udaller.one" },
+  { label: "LEAD DECAY", href: "https://leads.udaller.one" },
   { label: "TAX SHIELD", href: "https://tools.udaller.one" },
 ] as const;
 
