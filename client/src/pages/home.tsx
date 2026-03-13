@@ -428,21 +428,16 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 flex-wrap w-full sm:w-auto">
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="flex-1 sm:flex-none text-sm border-[#3B82F6]/30 text-[#60A5FA]"
+                  <a
+                    href="https://udallerprotocol.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg px-8 py-3 text-base font-bold bg-[#F4C430] hover:bg-[#D4A017] text-[#0F1115] transition-colors w-full md:w-auto"
                     data-testid="button-contract-template"
                   >
-                    <a
-                      href="https://www.honeybook.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Get a Solid Contract Template
-                      <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                    </a>
-                  </Button>
+                    Get a Solid Contract Template
+                    <ExternalLink className="h-5 w-5" />
+                  </a>
                 </div>
               </div>
             </CardContent>
