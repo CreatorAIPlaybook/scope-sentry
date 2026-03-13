@@ -22,25 +22,25 @@ export default function SovereignHeader({ appName }: SovereignHeaderProps) {
         aria-label="Main navigation"
       >
         {/* Left: Brand Identity */}
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center min-w-0">
           <a
             href="https://udaller.one"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 focus:outline-none focus:ring-2 focus:ring-[#F4C430]/50 rounded"
+            className="shrink-0 focus:outline-none rounded"
           >
             <UdallerLogo className="h-8 w-auto" />
           </a>
-          <span className="text-gray-600 shrink-0" aria-hidden>
+          <span className="text-gray-700 text-xl font-light mx-3 pb-0.5" aria-hidden>
             |
           </span>
-          <span className="text-[#F4C430] font-semibold tracking-wide truncate">
+          <span className="text-[#F4C430] text-lg font-bold tracking-wide truncate">
             {appName}
           </span>
         </div>
 
         {/* Right: Suite Navigation (desktop) */}
-        <div className="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wider">
+        <div className="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wider uppercase">
           {navLinks.map(({ label, href }) => {
             const isActive =
               label.toLowerCase() === appName.toLowerCase();
@@ -53,7 +53,7 @@ export default function SovereignHeader({ appName }: SovereignHeaderProps) {
                 className={
                   isActive
                     ? "text-white"
-                    : "text-gray-400 hover:text-white transition-colors"
+                    : "text-gray-500 hover:text-[#F4C430] transition-colors"
                 }
               >
                 {label}

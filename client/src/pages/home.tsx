@@ -263,17 +263,17 @@ export default function Home() {
       <SovereignHeader appName="Scope Sentry" />
 
       <main className="max-w-7xl mx-auto px-6 py-8">
-        <div className="text-sm text-gray-500 flex items-center justify-center gap-2 mb-4">
+        <div className="text-sm text-gray-500 mb-6 flex items-center justify-center gap-2">
           <Lock className="w-4 h-4 shrink-0" />
           <span>100% Private - Processed Securely &amp; Never Stored</span>
         </div>
         <h1
-          className="text-3xl font-bold text-white mb-3 text-center"
+          className="text-4xl font-bold text-white mb-4 tracking-tight text-center"
           data-testid="text-input-headline"
         >
           Analyze Your Scope of Work
         </h1>
-        <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+        <p className="text-sm text-gray-400 max-w-2xl mx-auto text-center mb-10">
           Identify &lsquo;Scope Creep&rsquo; triggers before you sign the contract.
         </p>
 
@@ -407,16 +407,6 @@ export default function Home() {
           </div>
         </div>
 
-        <p
-          className="text-sm text-gray-500 normal-case text-center mt-12 px-8 leading-relaxed font-sans"
-          data-testid="text-disclaimer"
-        >
-          Scope Sentry provides automated risk analysis based on standard
-          contract patterns for informational purposes only. It is not a
-          substitute for professional legal counsel. Always review agreements
-          carefully or consult an attorney before signing.
-        </p>
-
         <div className="mt-12">
           <Card className="border-[rgba(255,255,255,0.06)]">
             <CardContent className="p-6">
@@ -459,30 +449,38 @@ export default function Home() {
           </Card>
         </div>
 
-        <p
-          className="text-sm text-gray-500 text-center mt-12 pb-8 leading-relaxed font-sans"
-          data-testid="text-powered-by"
-        >
-          This tool is part of the{" "}
-          <a
-            href="https://udaller.one"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-gray-400 hover:text-[#F4C430] transition-colors"
+        <footer className="mt-16 pt-8 border-t border-white/5">
+          <p
+            className="text-xs text-gray-600 text-center max-w-4xl mx-auto leading-relaxed mb-6"
+            data-testid="text-disclaimer"
           >
-            Udaller
-          </a>{" "}
-          ecosystem. Build your machine at{" "}
-          <a
-            href="https://udallerprotocol.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-gray-400 hover:text-[#F4C430] transition-colors"
-          >
-            The Udaller Protocol
-          </a>
-          .
-        </p>
+            This tool provides automated analysis based on standard patterns for
+            informational purposes only. It is not a substitute for professional
+            operational or legal counsel. Always review your agreements carefully
+            or consult a qualified professional.
+          </p>
+          <p className="text-xs text-gray-500 text-center" data-testid="text-powered-by">
+            This tool is part of the{" "}
+            <a
+              href="https://udaller.one"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-gray-300 hover:text-[#F4C430] transition-colors"
+            >
+              Udaller
+            </a>{" "}
+            ecosystem. Build your machine at{" "}
+            <a
+              href="https://udallerprotocol.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-gray-300 hover:text-[#F4C430] transition-colors"
+            >
+              The Udaller Protocol
+            </a>
+            .
+          </p>
+        </footer>
       </main>
     </div>
   );

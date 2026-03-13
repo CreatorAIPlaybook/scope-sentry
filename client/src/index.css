@@ -156,7 +156,7 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased text-[#E1E2E4] bg-[#0F1115];
   }
 }
 
